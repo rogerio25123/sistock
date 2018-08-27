@@ -1,0 +1,3 @@
+mysqldump -u root -p1 -x  --opt  --default-character-set=latin1   sistock_mauro > backup.sql
+
+//mysqldump -h HOST -u LOGIN -p -R --opt --default-character-set=latin1 BANCO > backup.sql

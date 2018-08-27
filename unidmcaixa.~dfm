@@ -1,0 +1,399 @@
+object dm: Tdm
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Left = 156
+  Top = 105
+  Height = 480
+  Width = 696
+  object srccaixa: TDataSource
+    DataSet = sqlcaixa
+    Left = 104
+    Top = 48
+  end
+  object srcitens: TDataSource
+    DataSet = sqlitens
+    Left = 112
+    Top = 128
+  end
+  object srcformapgto: TDataSource
+    DataSet = sqlformapgto
+    Left = 144
+    Top = 296
+  end
+  object srccliente: TDataSource
+    DataSet = sqlclientes
+    Left = 304
+    Top = 40
+  end
+  object srcprodutos: TDataSource
+    Left = 312
+    Top = 104
+  end
+  object srcempresa: TDataSource
+    DataSet = sqlempresa
+    Left = 336
+    Top = 232
+  end
+  object srcempresatbl: TDataSource
+    DataSet = tblempresa
+    Left = 624
+    Top = 128
+  end
+  object sqlcaixa: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from dadosvendas')
+    Params = <>
+    Left = 48
+    Top = 48
+    object sqlcaixacodvenda: TIntegerField
+      FieldName = 'codvenda'
+      Required = True
+    end
+    object sqlcaixadata: TDateField
+      FieldName = 'data'
+    end
+    object sqlcaixahoras: TTimeField
+      FieldName = 'horas'
+    end
+    object sqlcaixacodcli: TIntegerField
+      FieldName = 'codcli'
+    end
+    object sqlcaixacliente: TStringField
+      FieldName = 'cliente'
+      Size = 65
+    end
+    object sqlcaixatotal: TFloatField
+      FieldName = 'total'
+      DisplayFormat = '0.00'
+    end
+    object sqlcaixatotalitens: TIntegerField
+      Alignment = taCenter
+      FieldName = 'totalitens'
+    end
+    object sqlcaixaformapgto: TStringField
+      FieldName = 'formapgto'
+      Size = 30
+    end
+    object sqlcaixalocalentrega: TStringField
+      FieldName = 'localentrega'
+      Size = 90
+    end
+    object sqlcaixavendedor: TStringField
+      FieldName = 'vendedor'
+      Size = 40
+    end
+    object sqlcaixasituacao: TStringField
+      FieldName = 'situacao'
+    end
+    object sqlcaixadesconto: TFloatField
+      FieldName = 'desconto'
+      DisplayFormat = '0.00'
+    end
+    object sqlcaixasubtotal: TFloatField
+      FieldName = 'subtotal'
+      DisplayFormat = '0.00'
+    end
+  end
+  object conexao: TZConnection
+    Protocol = 'mysql'
+    Port = 3306
+    Left = 136
+    Top = 8
+  end
+  object sqlitens: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from itensvendas')
+    Params = <>
+    Left = 56
+    Top = 128
+    object sqlitensregistro: TIntegerField
+      FieldName = 'registro'
+      Required = True
+    end
+    object sqlitenscodvenda: TIntegerField
+      FieldName = 'codvenda'
+    end
+    object sqlitenscodprod: TIntegerField
+      FieldName = 'codprod'
+    end
+    object sqlitensdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 120
+    end
+    object sqlitensunivenda: TStringField
+      FieldName = 'univenda'
+      Size = 12
+    end
+    object sqlitensqtd: TFloatField
+      FieldName = 'qtd'
+    end
+    object sqlitenspreco: TFloatField
+      FieldName = 'preco'
+    end
+    object sqlitensdesconto: TFloatField
+      FieldName = 'desconto'
+    end
+  end
+  object sqlclientes: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from clientes')
+    Params = <>
+    Left = 248
+    Top = 40
+    object sqlclientescodcli: TIntegerField
+      FieldName = 'codcli'
+      Required = True
+    end
+    object sqlclientescliente: TStringField
+      FieldName = 'cliente'
+      Size = 55
+    end
+    object sqlclientesendereco: TStringField
+      FieldName = 'endereco'
+      Size = 65
+    end
+    object sqlclientestelefone: TStringField
+      FieldName = 'telefone'
+    end
+    object sqlclientessaldo: TFloatField
+      FieldName = 'saldo'
+    end
+    object sqlclientescpf: TIntegerField
+      FieldName = 'cpf'
+    end
+    object sqlclientesrg: TStringField
+      FieldName = 'rg'
+      Size = 22
+    end
+    object sqlclientesemail: TStringField
+      FieldName = 'email'
+      Size = 35
+    end
+    object sqlclientesdatanasc: TStringField
+      FieldName = 'datanasc'
+      Size = 10
+    end
+    object sqlclientesfantasia: TStringField
+      FieldName = 'fantasia'
+      Size = 40
+    end
+    object sqlclientescargo: TStringField
+      FieldName = 'cargo'
+      Size = 35
+    end
+    object sqlclienteslimite: TFloatField
+      FieldName = 'limite'
+    end
+    object sqlclientesbloqueio: TStringField
+      FieldName = 'bloqueio'
+      Size = 1
+    end
+  end
+  object sqlprodutos: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from produtos')
+    Params = <>
+    Left = 248
+    Top = 104
+    object sqlprodutoscodprod: TIntegerField
+      FieldName = 'codprod'
+      Required = True
+    end
+    object sqlprodutosbarra: TStringField
+      FieldName = 'barra'
+      Size = 16
+    end
+    object sqlprodutosgrupo: TStringField
+      FieldName = 'grupo'
+      Size = 35
+    end
+    object sqlprodutosdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 80
+    end
+    object sqlprodutosunivenda: TStringField
+      FieldName = 'univenda'
+      Size = 12
+    end
+    object sqlprodutosmarca: TStringField
+      FieldName = 'marca'
+      Size = 35
+    end
+    object sqlprodutosestoque: TFloatField
+      FieldName = 'estoque'
+    end
+    object sqlprodutosprecocusto: TFloatField
+      FieldName = 'precocusto'
+    end
+    object sqlprodutosaddperc: TFloatField
+      FieldName = 'addperc'
+    end
+    object sqlprodutosprecovenda: TFloatField
+      FieldName = 'precovenda'
+    end
+    object sqlprodutosestoqueminimo: TFloatField
+      FieldName = 'estoqueminimo'
+    end
+    object sqlprodutoscodforn: TIntegerField
+      FieldName = 'codforn'
+    end
+    object sqlprodutosdesconto: TFloatField
+      FieldName = 'desconto'
+    end
+  end
+  object sqltotalcaixa: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'SELECT sum(total) totalcaixa  FROM dadosvendas')
+    Params = <>
+    Left = 120
+    Top = 184
+    object sqltotalcaixatotalcaixa: TFloatField
+      FieldName = 'totalcaixa'
+      ReadOnly = True
+    end
+  end
+  object sqlformapgto: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from formapgto')
+    Params = <>
+    Left = 80
+    Top = 288
+    object sqlformapgtoregistro: TIntegerField
+      FieldName = 'registro'
+      Required = True
+    end
+    object sqlformapgtoformapgto: TStringField
+      FieldName = 'formapgto'
+      Size = 30
+    end
+    object sqlformapgtoprazo: TStringField
+      FieldName = 'prazo'
+      Size = 3
+    end
+  end
+  object sqlempresa: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'select * from empresa')
+    Params = <>
+    Left = 272
+    Top = 240
+    object sqlempresaregistro: TIntegerField
+      FieldName = 'registro'
+      Required = True
+    end
+    object sqlempresaempresa: TStringField
+      FieldName = 'empresa'
+      Size = 60
+    end
+    object sqlempresaendereco: TStringField
+      FieldName = 'endereco'
+      Size = 65
+    end
+    object sqlempresatelefone: TStringField
+      FieldName = 'telefone'
+      Size = 40
+    end
+    object sqlempresacnpjinscr: TStringField
+      FieldName = 'cnpjinscr'
+      Size = 120
+    end
+    object sqlempresaimagem: TBlobField
+      FieldName = 'imagem'
+    end
+  end
+  object sqltotalretirada: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'SELECT sum(total) totalretirada FROM dadosvendas')
+    Params = <>
+    Left = 272
+    Top = 288
+    object sqltotalretiradatotalretirada: TFloatField
+      FieldName = 'totalretirada'
+      ReadOnly = True
+    end
+  end
+  object sqlcaixaaprazo: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'SELECT sum(total) totalaprazo FROM dadosvendas')
+    Params = <>
+    Left = 464
+    Top = 200
+    object sqlcaixaaprazototalaprazo: TFloatField
+      FieldName = 'totalaprazo'
+      ReadOnly = True
+    end
+  end
+  object sqlultimavenda: TZQuery
+    Connection = conexao
+    SQL.Strings = (
+      'SELECT MAX( codvenda + 1 ) ultimavenda'
+      'FROM dadosvendas')
+    Params = <>
+    Left = 424
+    Top = 72
+    object sqlultimavendaultimavenda: TLargeintField
+      FieldName = 'ultimavenda'
+      ReadOnly = True
+    end
+  end
+  object tblempresa: TZTable
+    Connection = conexao
+    TableName = 'empresa'
+    Left = 544
+    Top = 120
+    object tblempresaregistro: TIntegerField
+      FieldName = 'registro'
+      Required = True
+    end
+    object tblempresaempresa: TStringField
+      FieldName = 'empresa'
+      Size = 60
+    end
+    object tblempresaendereco: TStringField
+      FieldName = 'endereco'
+      Size = 65
+    end
+    object tblempresatelefone: TStringField
+      FieldName = 'telefone'
+      Size = 40
+    end
+    object tblempresacnpjinscr: TStringField
+      FieldName = 'cnpjinscr'
+      Size = 120
+    end
+    object tblempresaimagem: TBlobField
+      FieldName = 'imagem'
+    end
+  end
+  object tbbanco: TTable
+    Active = True
+    DatabaseName = 'c:\sistock'
+    TableName = 'banco.db'
+    Left = 456
+    Top = 312
+    object tbbancoCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object tbbancoHost: TStringField
+      FieldName = 'Host'
+    end
+    object tbbancoBanco: TStringField
+      FieldName = 'Banco'
+    end
+    object tbbancoLogin: TStringField
+      FieldName = 'Login'
+    end
+    object tbbancoSenha: TStringField
+      FieldName = 'Senha'
+    end
+  end
+end

@@ -1,0 +1,133 @@
+unit unidmcaixa;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Db, DBTables, ZConnection, ZAbstractRODataset, ZAbstractDataset, ZDataset,
+  ZAbstractTable;
+
+type
+  Tdm = class(TDataModule)
+    srccaixa: TDataSource;
+    srcitens: TDataSource;
+    srcformapgto: TDataSource;
+    srccliente: TDataSource;
+    srcprodutos: TDataSource;
+    srcempresa: TDataSource;
+    srcempresatbl: TDataSource;
+    sqlcaixa: TZQuery;
+    conexao: TZConnection;
+    sqlcaixacodvenda: TIntegerField;
+    sqlcaixadata: TDateField;
+    sqlcaixahoras: TTimeField;
+    sqlcaixacodcli: TIntegerField;
+    sqlcaixacliente: TStringField;
+    sqlcaixatotal: TFloatField;
+    sqlcaixatotalitens: TIntegerField;
+    sqlcaixaformapgto: TStringField;
+    sqlcaixalocalentrega: TStringField;
+    sqlcaixavendedor: TStringField;
+    sqlcaixasituacao: TStringField;
+    sqlitens: TZQuery;
+    sqlitensregistro: TIntegerField;
+    sqlitenscodvenda: TIntegerField;
+    sqlitenscodprod: TIntegerField;
+    sqlitensdescricao: TStringField;
+    sqlitensunivenda: TStringField;
+    sqlitensqtd: TFloatField;
+    sqlitenspreco: TFloatField;
+    sqlitensdesconto: TFloatField;
+    sqlclientes: TZQuery;
+    sqlclientescodcli: TIntegerField;
+    sqlclientescliente: TStringField;
+    sqlclientesendereco: TStringField;
+    sqlclientestelefone: TStringField;
+    sqlclientessaldo: TFloatField;
+    sqlclientescpf: TIntegerField;
+    sqlclientesrg: TStringField;
+    sqlclientesemail: TStringField;
+    sqlclientesdatanasc: TStringField;
+    sqlclientesfantasia: TStringField;
+    sqlclientescargo: TStringField;
+    sqlclienteslimite: TFloatField;
+    sqlclientesbloqueio: TStringField;
+    sqlprodutos: TZQuery;
+    sqlprodutoscodprod: TIntegerField;
+    sqlprodutosbarra: TStringField;
+    sqlprodutosgrupo: TStringField;
+    sqlprodutosdescricao: TStringField;
+    sqlprodutosunivenda: TStringField;
+    sqlprodutosmarca: TStringField;
+    sqlprodutosestoque: TFloatField;
+    sqlprodutosprecocusto: TFloatField;
+    sqlprodutosaddperc: TFloatField;
+    sqlprodutosprecovenda: TFloatField;
+    sqlprodutosestoqueminimo: TFloatField;
+    sqlprodutoscodforn: TIntegerField;
+    sqlprodutosdesconto: TFloatField;
+    sqltotalcaixa: TZQuery;
+    sqltotalcaixatotalcaixa: TFloatField;
+    sqlformapgto: TZQuery;
+    sqlformapgtoregistro: TIntegerField;
+    sqlformapgtoformapgto: TStringField;
+    sqlformapgtoprazo: TStringField;
+    sqlempresa: TZQuery;
+    sqlempresaregistro: TIntegerField;
+    sqlempresaempresa: TStringField;
+    sqlempresaendereco: TStringField;
+    sqlempresatelefone: TStringField;
+    sqlempresacnpjinscr: TStringField;
+    sqlempresaimagem: TBlobField;
+    sqltotalretirada: TZQuery;
+    sqltotalretiradatotalretirada: TFloatField;
+    sqlcaixaaprazo: TZQuery;
+    sqlcaixaaprazototalaprazo: TFloatField;
+    sqlultimavenda: TZQuery;
+    sqlultimavendaultimavenda: TLargeintField;
+    tblempresa: TZTable;
+    tblempresaregistro: TIntegerField;
+    tblempresaempresa: TStringField;
+    tblempresaendereco: TStringField;
+    tblempresatelefone: TStringField;
+    tblempresacnpjinscr: TStringField;
+    tblempresaimagem: TBlobField;
+    tbbanco: TTable;
+    tbbancoCodigo: TIntegerField;
+    tbbancoHost: TStringField;
+    tbbancoBanco: TStringField;
+    tbbancoLogin: TStringField;
+    tbbancoSenha: TStringField;
+    sqlcaixadesconto: TFloatField;
+    sqlcaixasubtotal: TFloatField;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dm: Tdm;
+
+implementation
+
+{$R *.DFM}
+
+procedure Tdm.DataModuleCreate(Sender: TObject);
+begin
+tbbanco.open;
+conexao.Database := tbbancoBanco.AsString;
+conexao.HostName := tbbancoHost.AsString;
+conexao.User := tbbancoLogin.AsString;
+conexao.Password := tbbancosenha.AsString;
+conexao.Connected := true;
+
+ sqlitens.Active := true;
+ tblempresa.Active := true;
+ sqlcaixa.Active:= true;
+ sqlformapgto.Active:= true;
+  tblempresa.Active:= true;
+end;
+
+end.

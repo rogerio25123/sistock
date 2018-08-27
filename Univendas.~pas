@@ -1,0 +1,338 @@
+unit Univendas;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  Menus, StdCtrls, Grids, DBGrids, Mask, DBCtrls, ExtCtrls;
+
+type
+  Tfrmpri = class(TForm)
+    Label4: TLabel;
+    Label7: TLabel;
+    Label1: TLabel;
+    Panel3: TPanel;
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    labeltotal: TLabel;
+    Panel2: TPanel;
+    labelitens: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    editbarra: TEdit;
+    editquantidade: TEdit;
+    editcodvenda: TEdit;
+    DBGrid2: TDBGrid;
+    Button1: TButton;
+    labelnota: TLabel;
+    Label2: TLabel;
+    GroupBox1: TGroupBox;
+    Image2: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Label5: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Image1: TImage;
+    Image3: TImage;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Image6: TImage;
+    Label18: TLabel;
+    PopupMenu1: TPopupMenu;
+    Inserir1: TMenuItem;
+    Confirmar1: TMenuItem;
+    ExcluirItem1: TMenuItem;
+    ExcluirTodososItens1: TMenuItem;
+    ImprimirOramento1: TMenuItem;
+    Imprimir1: TMenuItem;
+    MudarQtd1: TMenuItem;
+    procedure Image6Click(Sender: TObject);
+    procedure editbarraKeyPress(Sender: TObject; var Key: Char);
+    procedure Button1Click(Sender: TObject);
+    procedure Confirmar1Click(Sender: TObject);
+    procedure ExcluirItem1Click(Sender: TObject);
+    procedure ExcluirTodososItens1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure inseriritens;
+    procedure abrir;
+    procedure ultimavenda;
+    procedure inserirdadosvendas;
+    procedure  cancelarnota;
+  end;
+
+var
+  frmpri: Tfrmpri;
+  ultimo: integer;
+
+
+
+implementation
+
+uses unidmvendas;
+
+{$R *.}
+procedure  Tfrmpri.cancelarnota;
+begin
+with dm.sqldadosvendas do
+     begin
+     Close;
+     SQL.Clear;
+     SQL.Add('DELETE FROM dadosvendas where registro = "' + editcodvenda.Text + '" ');
+     ExecSQL;
+
+end;
+
+
+with dm.sqlitens do
+     begin
+     Close;
+     SQL.Clear;
+     SQL.Add('DELETE FROM itensvendas where codvenda = "' + editcodvenda.Text + '" ');
+     ExecSQL;
+
+end;
+inserirdadosvendas;
+
+
+end;
+
+procedure  Tfrmpri.ultimavenda;
+ begin
+  With dm.sqlultimavenda do
+  Begin
+  Close;
+  Sql.Clear;
+  Sql.Add('SELECT MAX( codvenda  ) ultimavenda  FROM dadosvendas  ');
+   //Sql.Add(' values ( "' + edit2.text +'", "' + edit3.text +'", "' + edit4.text +'") ');
+  open;
+   // End
+ // Except
+ // Showmessage('veja se os campos estao corretamente preenchidos');
+
+  End;
+  ultimo:= 0;
+  ultimo := ultimo + dm.sqlultimavendaultimavenda.AsInteger+1;
+
+ editcodvenda.text := inttostr(ultimo);
+ labelnota.caption:= inttostr(ultimo);
+// edittitulo.text := dm.sqlultimousuultimamatricula.AsString;
+end;
+
+
+procedure Tfrmpri.inserirdadosvendas;
+begin
+
+  With dm.sqldadosvendas do
+  Begin
+   ultimavenda;
+  Close;
+  Sql.Clear;
+  Sql.Add('Insert Into dadosvendas (codvenda, data, horas ) ' ) ;
+
+
+   Sql.Add(' values ( "' + inttostr(ultimo)+ '" ,"' + datetostr(date)+ '", ');
+   Sql.Add(' "' + timetostr(time)+ '" )');
+
+
+  ExecSql;
+   // End
+ // Except
+
+
+
+    End;
+
+
+  abrir;
+  //ultimamatricula;
+
+
+
+end;
+
+
+
+
+procedure Tfrmpri.abrir;
+begin
+  With dm.sqlitens do
+  Begin
+  Close;
+  Sql.Clear;
+  Sql.Add('select * from itensvendas  where codvenda = "' + editcodvenda.text +'"  ');
+   //Sql.Add(' values ( "' + edit2.text +'", "' + edit3.text +'", "' + edit4.text +'") ');
+  open;
+
+   // End
+ // Except
+ // Showmessage('veja se os campos estao corretamente preenchidos');
+  End;
+  dm.sqlitens.Last;
+end;
+
+
+
+
+function TrocaVirgPPto(Valor: string): String;
+var i:integer;
+begin
+if Valor <> ' ' then
+begin
+for i := 0 to Length(Valor) do
+begin
+if Valor[i]='.' then
+begin
+Valor[i]:=',';
+end
+else if Valor[i] = ',' then
+begin
+Valor[i]:='.';
+end;
+end;
+end;
+Result := valor;
+end;
+
+
+
+procedure Tfrmpri.inseriritens;
+begin
+
+  With dm.sqlitens do
+  Begin
+  // ultimamatricula;
+  Close;
+  Sql.Clear;
+  Sql.Add('Insert Into itensvendas (codvenda,descricao,univenda,  ' ) ;
+  Sql.Add('  qtd,    ') ;
+    Sql.Add(' preco ) ');
+
+   Sql.Add(' values ( "' + editcodvenda.Text+ '"  , "' + dm.sqlprodutosDescricao.AsString + '" , ');
+   Sql.Add('  "' + dm.sqlprodutosUnivenda.AsString +'", "' + editquantidade.text+ '" ,');
+   Sql.Add('   "' + TrocaVirgPPto(dm.sqlprodutosPrecovenda.AsString)+ '"  )  ');
+
+
+  ExecSql;
+   // End
+ // Except
+
+
+
+
+
+  End;
+
+
+
+
+
+
+
+  abrir;
+  //ultimamatricula;
+
+
+
+end;
+
+
+procedure Tfrmpri.Image6Click(Sender: TObject);
+begin
+WinExec('calc',0);
+end;
+
+procedure Tfrmpri.editbarraKeyPress(Sender: TObject; var Key: Char);
+begin
+if key = #13 then
+begin
+with  dm.sqlprodutos do
+     begin
+     Close;
+     SQL.Clear;
+     SQL.Add('Select * from produtos where barra = "' + editbarra.text +'" ');
+    // params[0].AsString := editresponsavel.text;
+     open;
+     end;
+
+if (dm.sqlprodutos.RecordCount> 0) and (editbarra.text <> '') then
+begin
+inseriritens;
+//dm.tblitensQtd.FocusControl;
+editquantidade.Text:='1';
+editbarra.Text:='';
+editbarra.SetFocus;
+
+ end else begin
+ if editbarra.text <> '' then
+ begin
+//Application.CreateForm(tfrmescproduto,frmescproduto);
+//frmescproduto.showmodal;
+
+end;
+    end;
+    end;
+    end;
+procedure Tfrmpri.Button1Click(Sender: TObject);
+begin
+
+ inserirdadosvendas;
+ Button1.Enabled:=false;
+ editbarra.Visible:= true;
+editquantidade.Visible:= true;
+Label12.Visible:=true;
+Label13.Visible:=true;
+DBGrid1.Visible:=true;
+GroupBox1.Visible:=true;
+Button1.Visible:=false;
+end;
+
+procedure Tfrmpri.Confirmar1Click(Sender: TObject);
+begin
+if editcodvenda.Text <> '' then
+begin
+if  application.messagebox('Deseja finalizar a nota?',
+   'Confirmação' , mb_yesno + mb_iconquestion) = mrYes then
+   begin
+
+   inserirdadosvendas;
+end;
+    end;
+
+    end;
+procedure Tfrmpri.ExcluirItem1Click(Sender: TObject);
+var reg: string;
+begin
+if  application.messagebox('Deseja Excluir Este Item?',
+   'Confirmação' , mb_yesno + mb_iconquestion) = mrYes then
+   begin
+   reg:=dm.sqlitensRegistro.AsString;
+with dm.sqlitens do
+     begin
+     Close;
+     SQL.Clear;
+     SQL.Add('DELETE FROM itensvendas where registro = "' + reg + '" ');
+     ExecSQL;
+
+end;
+
+abrir;
+end;
+    end;
+procedure Tfrmpri.ExcluirTodososItens1Click(Sender: TObject);
+begin
+if  application.messagebox('Deseja Excluir Este Item?',
+   'Confirmação' , mb_yesno + mb_iconquestion) = mrYes then
+   begin
+
+   cancelarnota;
+
+end;
+end;
+end.

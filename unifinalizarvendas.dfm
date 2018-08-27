@@ -1,0 +1,261 @@
+object frmfinalizarvendas: Tfrmfinalizarvendas
+  Left = 299
+  Top = 237
+  Width = 419
+  Height = 232
+  Caption = 'Finalizar Vendas'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 19
+    Width = 49
+    Height = 13
+    Caption = 'Codvenda'
+  end
+  object Label2: TLabel
+    Left = 8
+    Top = 64
+    Width = 30
+    Height = 13
+    Caption = 'CodCli'
+  end
+  object Label3: TLabel
+    Left = 80
+    Top = 64
+    Width = 32
+    Height = 13
+    Caption = 'Cliente'
+  end
+  object Label4: TLabel
+    Left = 80
+    Top = 19
+    Width = 51
+    Height = 13
+    Caption = 'FormaPgto'
+  end
+  object Label5: TLabel
+    Left = 8
+    Top = 108
+    Width = 63
+    Height = 13
+    Caption = 'LocalEntrega'
+  end
+  object Label6: TLabel
+    Left = 216
+    Top = 160
+    Width = 24
+    Height = 13
+    Caption = 'Total'
+    FocusControl = DBEdit6
+  end
+  object Label7: TLabel
+    Left = 288
+    Top = 160
+    Width = 47
+    Height = 13
+    Caption = 'TotalItens'
+    FocusControl = DBEdit7
+  end
+  object Label8: TLabel
+    Left = 8
+    Top = 152
+    Width = 52
+    Height = 13
+    Caption = 'Valor Pago'
+    FocusControl = DBEdit6
+  end
+  object Label9: TLabel
+    Left = 112
+    Top = 152
+    Width = 37
+    Height = 13
+    Caption = 'Troco..:'
+    FocusControl = DBEdit6
+  end
+  object BitBtn1: TBitBtn
+    Left = 328
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = '&Finalizar'
+    TabOrder = 7
+    OnClick = BitBtn1Click
+  end
+  object DBEdit6: TDBEdit
+    Left = 216
+    Top = 176
+    Width = 64
+    Height = 24
+    DataField = 'Total'
+    DataSource = dm.srccaixa
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+  end
+  object DBEdit7: TDBEdit
+    Left = 288
+    Top = 176
+    Width = 41
+    Height = 24
+    DataField = 'TotalItens'
+    DataSource = dm.srccaixa
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 10
+  end
+  object btncliente: TBitBtn
+    Left = 288
+    Top = 80
+    Width = 33
+    Height = 25
+    Caption = '......'
+    TabOrder = 3
+    OnClick = btnclienteClick
+  end
+  object editvalorpago: TEdit
+    Left = 8
+    Top = 168
+    Width = 97
+    Height = 32
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clNavy
+    Font.Height = -21
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+    OnExit = editvalorpagoExit
+    OnKeyPress = editvalorpagoKeyPress
+  end
+  object edittroco: TEdit
+    Left = 112
+    Top = 168
+    Width = 97
+    Height = 32
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clNavy
+    Font.Height = -21
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 6
+  end
+  object editformapgto: TEdit
+    Left = 80
+    Top = 34
+    Width = 118
+    Height = 27
+    CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 11
+  end
+  object editcodcli: TEdit
+    Left = 8
+    Top = 79
+    Width = 65
+    Height = 27
+    CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 8
+  end
+  object editcliente: TEdit
+    Left = 80
+    Top = 79
+    Width = 204
+    Height = 27
+    CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+  end
+  object editlocalentrega: TEdit
+    Left = 8
+    Top = 124
+    Width = 275
+    Height = 27
+    CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+  end
+  object Button1: TButton
+    Left = 200
+    Top = 35
+    Width = 33
+    Height = 25
+    Caption = '<--'
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 240
+    Top = 35
+    Width = 33
+    Height = 25
+    Caption = '-->'
+    TabOrder = 1
+    OnClick = Button2Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 328
+    Top = 48
+    Width = 75
+    Height = 25
+    Caption = '&Cancelar'
+    TabOrder = 12
+    OnClick = BitBtn2Click
+  end
+  object editcodvenda: TEdit
+    Left = 8
+    Top = 35
+    Width = 65
+    Height = 27
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 13
+  end
+end

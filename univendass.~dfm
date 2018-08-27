@@ -1,0 +1,738 @@
+object frmprivendas: Tfrmprivendas
+  Left = 340
+  Top = 120
+  BorderStyle = bsSingle
+  Caption = 'Vendas'
+  ClientHeight = 711
+  ClientWidth = 928
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  WindowState = wsMaximized
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnPaint = FormPaint
+  OnResize = FormResize
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 450
+    Top = 378
+    Width = 23
+    Height = 13
+    Caption = 'Data'
+    FocusControl = DBEdit3
+    Visible = False
+  end
+  object Label9: TLabel
+    Left = 750
+    Top = 28
+    Width = 27
+    Height = 15
+    Caption = 'Total'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 0
+    Width = 928
+    Height = 691
+    Align = alClient
+    Color = clGreen
+    TabOrder = 0
+    object Label13: TLabel
+      Left = 45
+      Top = 60
+      Width = 251
+      Height = 14
+      Caption = 'C'#243'digo de barra ou digite o nome do produto:'
+      Color = clActiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+    end
+    object Label1: TLabel
+      Left = 40
+      Top = 3
+      Width = 99
+      Height = 33
+      Alignment = taRightJustify
+      Caption = 'Nota...:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clYellow
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Visible = False
+    end
+    object labelnota: TLabel
+      Left = 140
+      Top = 4
+      Width = 51
+      Height = 33
+      Caption = '000'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clYellow
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Visible = False
+    end
+    object Label11: TLabel
+      Left = 793
+      Top = 8
+      Width = 88
+      Height = 16
+      Caption = 'Vendedor......:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 662
+      Top = 55
+      Width = 112
+      Height = 15
+      Caption = 'Total com Desconto'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 846
+      Top = 55
+      Width = 28
+      Height = 15
+      Caption = 'Itens'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 478
+      Top = 55
+      Width = 112
+      Height = 15
+      Caption = 'Total em Descontos'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 480
+      Top = 3
+      Width = 97
+      Height = 52
+      Caption = 'Loca'#231#227'o'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Name = 'Arial Black'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        76060000424D7606000000000000360400002800000018000000180000000100
+        08000000000040020000220B0000220B00000001000000010000006B00000073
+        080008730800087B080008731000087B100008841000088C1000089410001084
+        180008941800089C180008A5180008AD180010AD210018AD290021AD310021AD
+        390021BD390029AD4A0029BD4A0031BD4A0029C64A0031AD520039BD5A0039C6
+        5A0039BD630042CE6B004AD66B004AD67B0052DE84005AE78C005AEF940010A5
+        D60018A5D60021A5D60021ADD60029ADD60029ADDE0031ADDE0029B5DE0031B5
+        DE0039B5DE0042B5DE0039BDDE004ABDDE0039BDE70042BDE7005ABDE70063BD
+        E7004AC6E70052C6E7005AC6E70063C6E7006BC6E70073C6E70052CEE7005ACE
+        E70073CEE7007BCEE70052CEEF005ACEEF007BCEEF0084CEEF008CCEEF005AD6
+        EF0063D6EF0084D6EF0094D6EF0063DEEF005ACEF70063D6F7006BD6F70063DE
+        F70073DEF700ADDEF70073E7F7007BE7F70094E7F700BDE7F70094EFF700BDEF
+        F700FF00FF006BDEFF0073DEFF007BE7FF0084E7FF007BEFFF0084EFFF008CEF
+        FF009CEFFF00ADEFFF0084F7FF008CF7FF0094F7FF009CF7FF00A5F7FF00ADF7
+        FF00B5F7FF00C6F7FF00CEF7FF008CFFFF0094FFFF009CFFFF00A5FFFF00B5FF
+        FF00BDFFFF00C6FFFF00CEFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00525252525252
+        52525252525252525252525252525252525252232323342F2523225252525252
+        5252525252525252525252224B69675E594D48332B2523225252525252525252
+        52525221316C5D5E5E5E5E5E5D594A3D3229232222525252525252232B51675E
+        5E5E5E5D5D5D5E5E5959564227525252525252253444695D5E5E5E5D5D595959
+        595959563D235252525252254D35635D5E5E5E5D5D5959595959594D4A2C5252
+        5252522550384F675E5E5E5D5D5959595959594A54422252525252255A453F6A
+        5D5E5E02040202025959594A4A59255252525225505D2D64685E0202090A0A0A
+        0502594A4A5F325252525225506741314F5163636A5F060B0C07024A4A5F4A22
+        525252255A665E4238343535374F61020B0E06024A5E5E2A525252255A665E67
+        665E5958422B4B63060E0B02485D5E41525252255A665E5E5E5E5E5E5E4D2F3B
+        040F0E025B6A6A5B255252255F665E5E5E5E5E5D5D5E59410211120236373B3F
+        2752522560665E5E5E5E5E5D5D02020204151502020202525252522562665E5E
+        5E5E5E5A5A021017181B191410100152525252223B6966665E5E5827272A0213
+        201E1C10110252525252525223434E4E5A60392152525200171F1F1804525252
+        52525252522223232525235252525252021A1D09525252525252525252525252
+        5252525252525252520509525252525252525252525252525252525252525252
+        5252525252525252525252525252525252525252525252525252525252525252
+        5252525252525252525252525252525252525252525252525252}
+      Layout = blGlyphTop
+      ParentFont = False
+      Visible = False
+      OnClick = SpeedButton1Click
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 584
+      Top = 3
+      Width = 97
+      Height = 52
+      Caption = 'Devolu'#231#227'o'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -13
+      Font.Name = 'Arial Black'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        76060000424D7606000000000000360400002800000018000000180000000100
+        08000000000040020000220B0000220B00000001000000010000006B00000073
+        080008730800087B080008731000087B100008841000088C1000089410001084
+        180008941800089C180008A5180008AD180010AD210018AD290021AD310021AD
+        390021BD390029AD4A0029BD4A0031BD4A0029C64A0031AD520039BD5A0039C6
+        5A0039BD630042CE6B004AD66B004AD67B0052DE84005AE78C005AEF940010A5
+        D60018A5D60021A5D60021ADD60029ADD60029ADDE0031ADDE0029B5DE0031B5
+        DE0039B5DE0042B5DE0039BDDE004ABDDE0039BDE70042BDE7004ABDE7005ABD
+        E70063BDE7004AC6E70052C6E7005AC6E70063C6E70073C6E70052CEE7005ACE
+        E7007BCEE70052CEEF005ACEEF007BCEEF008CCEEF005AD6EF0063D6EF0084D6
+        EF0094D6EF0063DEEF005ACEF70063D6F7006BD6F70063DEF70073DEF700ADDE
+        F7007BE7F70094E7F700BDE7F70094EFF700BDEFF700FF00FF0073DEFF007BE7
+        FF0084E7FF007BEFFF0084EFFF008CEFFF009CEFFF0084F7FF008CF7FF0094F7
+        FF009CF7FF00A5F7FF00B5F7FF00C6F7FF00CEF7FF008CFFFF0094FFFF009CFF
+        FF00A5FFFF00B5FFFF00BDFFFF00C6FFFF00CEFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF004F4F4F4F4F4F
+        4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F
+        4F4F4F4F4F4F4F4F4F4F4F232323352F2523224F4F4F4F4F4F4F4F4F4F4F4F4F
+        4F4F4F2249636159554A46342B2523224F4F4F4F4F4F4F4F4F4F4F2132665859
+        595959595855483C33292322224F4F4F4F4F4F232B4E61595959595858585959
+        55555240274F4F4F4F4F4F25354263585959595858555555555555523C234F4F
+        4F4F4F254A365D5859595958585555555555554A482C4F4F4F4F4F254D384C61
+        5959595858555555555555485040224F4F4F4F2556433E645859595858555555
+        555555484855254F4F4F4F254D582D5E6259585858555555555555480509334F
+        4F4F4F254D613F324C4E5D5D645A5455555555021A1D09224F4F4F2556605940
+        38353636374C5C54555500171F1F18044F4F4F255660596160595554402B495D
+        590213201E1C1011024F4F255660595959595959594A2F3A021017181B191410
+        10014F255A605959595959585859553F020202041515020202024F255B605959
+        5959595858585559555354021112024F4F4F4F255C6059595959595656565656
+        56565A040F0E024F4F4F4F223A63606059595427272A2B2B2D2D31060E0B024F
+        4F4F4F4F23414B4B565B39214F4F4F4F4F4F020B0E06024F4F4F4F4F4F222323
+        2525234F4F4F4F4F4F060B0C07024F4F4F4F4F4F4F4F4F4F4F4F4F4F4F020209
+        0A0A0A05024F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F02040202024F4F4F4F4F
+        4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F4F}
+      Layout = blGlyphTop
+      ParentFont = False
+      Visible = False
+      OnClick = SpeedButton2Click
+    end
+    object Label12: TLabel
+      Left = 49
+      Top = 60
+      Width = 80
+      Height = 14
+      Caption = 'Digite a Senha:'
+      Color = clActiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Image1: TImage
+      Left = 5
+      Top = 5
+      Width = 205
+      Height = 20
+    end
+    object base: TSpeedButton
+      Left = 136
+      Top = 120
+      Width = 23
+      Height = 22
+      Visible = False
+    end
+    object editbarra: TEdit
+      Left = 44
+      Top = 74
+      Width = 253
+      Height = 30
+      BorderStyle = bsNone
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      Visible = False
+      OnKeyPress = editbarraKeyPress
+    end
+    object DBGrid11: TDBGrid
+      Left = 1
+      Top = 142
+      Width = 926
+      Height = 548
+      Align = alBottom
+      BorderStyle = bsNone
+      DataSource = dm.srcitens
+      FixedColor = clGreen
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -19
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Options = [dgTitles, dgIndicator, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      ParentFont = False
+      PopupMenu = PopupMenu1
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clYellow
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = [fsBold]
+      Visible = False
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'codprod'
+          Width = 55
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'descricao'
+          Title.Caption = 'Descricao'
+          Width = 511
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'univenda'
+          Title.Caption = 'Univenda'
+          Width = 69
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'qtd'
+          Title.Caption = 'Qtd'
+          Width = 50
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'preco'
+          Title.Caption = 'Preco'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'total'
+          Title.Caption = 'Total'
+          Width = 64
+          Visible = True
+        end>
+    end
+    object edittotal: TEdit
+      Left = 720
+      Top = 8
+      Width = 33
+      Height = 21
+      TabOrder = 4
+      Text = '0'
+      Visible = False
+    end
+    object editqtditens: TEdit
+      Left = 152
+      Top = 408
+      Width = 65
+      Height = 21
+      TabOrder = 5
+      Text = '0'
+      Visible = False
+    end
+    object editsenha: TEdit
+      Left = 48
+      Top = 75
+      Width = 121
+      Height = 25
+      BorderStyle = bsNone
+      CharCase = ecUpperCase
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      PasswordChar = '*'
+      TabOrder = 2
+      OnKeyPress = editsenhaKeyPress
+    end
+    object editvendedor: TEdit
+      Left = 792
+      Top = 24
+      Width = 99
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 6
+    end
+    object editdata: TEdit
+      Left = 136
+      Top = 368
+      Width = 121
+      Height = 21
+      TabOrder = 7
+      Text = 'editdata'
+      Visible = False
+    end
+    object editquantidade: TEdit
+      Left = 348
+      Top = 394
+      Width = 76
+      Height = 30
+      BorderStyle = bsNone
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 3
+      Text = '1'
+      Visible = False
+      OnKeyPress = editquantidadeKeyPress
+    end
+    object Panel2: TPanel
+      Left = 845
+      Top = 69
+      Width = 47
+      Height = 41
+      BevelInner = bvLowered
+      TabOrder = 9
+      object Label6: TLabel
+        Left = 4
+        Top = 6
+        Width = 37
+        Height = 29
+        Alignment = taCenter
+        AutoSize = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object Panel4: TPanel
+      Left = 480
+      Top = 69
+      Width = 177
+      Height = 41
+      BevelInner = bvLowered
+      TabOrder = 11
+      object labeldesconto: TLabel
+        Left = 5
+        Top = 6
+        Width = 167
+        Height = 29
+        Alignment = taRightJustify
+        AutoSize = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object Panel1: TPanel
+      Left = 664
+      Top = 69
+      Width = 177
+      Height = 41
+      BevelInner = bvLowered
+      TabOrder = 8
+      object Label3: TLabel
+        Left = 64
+        Top = 8
+        Width = 108
+        Height = 29
+        AutoSize = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -24
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 3
+        Top = 2
+        Width = 17
+        Height = 13
+        Caption = 'De'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label10: TLabel
+        Left = 37
+        Top = 18
+        Width = 20
+        Height = 13
+        Caption = 'Por'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object labeltotal: TLabel
+        Left = 27
+        Top = 2
+        Width = 26
+        Height = 13
+        Caption = '0,00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object CheckBox1: TCheckBox
+      Left = 44
+      Top = 105
+      Width = 109
+      Height = 17
+      Caption = 'Somente '#224' Vista'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 10
+      OnClick = CheckBox1Click
+    end
+    object checkperguntarqtd: TCheckBox
+      Left = 175
+      Top = 105
+      Width = 97
+      Height = 17
+      Caption = 'Perguntar Qtd'
+      Checked = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 12
+    end
+    object btnpreco1: TBitBtn
+      Left = 480
+      Top = 114
+      Width = 75
+      Height = 25
+      Caption = 'Pre'#231'o 1'
+      TabOrder = 13
+      Visible = False
+      OnClick = btnpreco1Click
+    end
+    object btnpreco2: TBitBtn
+      Left = 560
+      Top = 114
+      Width = 75
+      Height = 25
+      Caption = 'Pre'#231'o 2'
+      TabOrder = 14
+      Visible = False
+      OnClick = btnpreco2Click
+    end
+    object btnpreco3: TBitBtn
+      Left = 640
+      Top = 114
+      Width = 75
+      Height = 25
+      Caption = 'Pre'#231'o 3'
+      TabOrder = 15
+      Visible = False
+      OnClick = btnpreco3Click
+    end
+  end
+  object DBEdit3: TDBEdit
+    Left = 448
+    Top = 394
+    Width = 41
+    Height = 21
+    DataField = 'Data'
+    Enabled = False
+    TabOrder = 1
+    Visible = False
+  end
+  object editcodvenda: TEdit
+    Left = 160
+    Top = 456
+    Width = 105
+    Height = 21
+    TabOrder = 2
+    Visible = False
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 691
+    Width = 928
+    Height = 20
+    Panels = <
+      item
+        Text = 'F5 - Confirma'
+        Width = 100
+      end
+      item
+        Text = 'F10 - Cancela Nota'
+        Width = 120
+      end
+      item
+        Text = 'Del - Excluir Item'
+        Width = 120
+      end
+      item
+        Text = 'F7 - Imprimir Or'#231'amento'
+        Width = 150
+      end
+      item
+        Text = 'F9 - Pesquisar Produtos'
+        Width = 150
+      end
+      item
+        Text = 'F12 - Receber Conta'
+        Width = 120
+      end
+      item
+        Text = 'F2 - Trocar Produto'
+        Width = 50
+      end>
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 304
+    Top = 384
+    object Inserir1: TMenuItem
+      Caption = 'Trocar produto'
+      ShortCut = 113
+      OnClick = Inserir1Click
+    end
+    object Confirmar1: TMenuItem
+      Caption = 'Confirmar'
+      ShortCut = 116
+      OnClick = Confirmar1Click
+    end
+    object ExcluirTodososItens1: TMenuItem
+      Caption = 'Cancelar a Nota'
+      ShortCut = 121
+      OnClick = ExcluirTodososItens1Click
+    end
+    object ExcluirItem1: TMenuItem
+      Caption = 'Excluir Item'
+      ShortCut = 46
+      OnClick = ExcluirItem1Click
+    end
+    object ImprimirOramento1: TMenuItem
+      Caption = 'Imprimir Or'#231'amento'
+      ShortCut = 118
+      OnClick = ImprimirOramento1Click
+    end
+    object MudarQtd1: TMenuItem
+      Caption = 'Mudar Qtd'
+      ShortCut = 16465
+      OnClick = MudarQtd1Click
+    end
+    object ConfigurarBanco1: TMenuItem
+      Caption = 'Receber Conta'
+      ShortCut = 123
+      OnClick = ConfigurarBanco1Click
+    end
+    object PesquisarProduto1: TMenuItem
+      Caption = 'Pesquisar Produto'
+      ShortCut = 120
+      OnClick = PesquisarProduto1Click
+    end
+  end
+end
