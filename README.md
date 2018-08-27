@@ -1,5 +1,4 @@
 # sistock
-sistock
 Descrição do projeto e das tecnologias utilizadas:
 1.	Delphi 7
 2.	Banco de dados MYSQL, eu utilizei o pacote XAMPP para instalar o banco de dados mysql. Link para download: https://www.apachefriends.org/download.html baixe a versão 7.0.31.
